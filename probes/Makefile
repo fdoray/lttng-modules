@@ -17,6 +17,8 @@ obj-m += lttng-probe-power.o
 
 obj-m += lttng-probe-statedump.o
 
+obj-m += lttng-probe-latency_tracker.o
+
 ifneq ($(CONFIG_KVM),)
 obj-m += lttng-probe-kvm.o
 ifneq ($(CONFIG_X86),)

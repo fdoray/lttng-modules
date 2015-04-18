@@ -63,10 +63,10 @@ unsigned int nf_hookfn_inet_local_in(const struct nf_hook_ops *ops,
 	struct sock *sk;
 	struct iphdr *iph = ip_hdr(skb);
 	if (iph->protocol == IPPROTO_TCP) {
-		/* tcp_hdr macro doesn't return correct offset into skb->data, doing it ourselves */
+		//tcp_hdr macro doesn't return correct offset into skb->data, doing it ourselves 
 		//tcph = tcp_hdr(skb);
 		tcph = (struct tcphdr *)(skb->data + (iph->ihl << 2 ));
-		sk = __inet_lookup_skb(&tcp_hashinfo, skb, tcph->source, tcph->dest);
+		sk = 0; //__inet_lookup_skb(&tcp_hashinfo, skb, tcph->source, tcph->dest);
 		trace_inet_sock_local_in(sk, tcph);
 	}
 	return NF_ACCEPT;
