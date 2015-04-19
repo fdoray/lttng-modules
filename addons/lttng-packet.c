@@ -66,8 +66,10 @@ unsigned int nf_hookfn_inet_local_in(const struct nf_hook_ops *ops,
 		//tcp_hdr macro doesn't return correct offset into skb->data, doing it ourselves 
 		//tcph = tcp_hdr(skb);
 		tcph = (struct tcphdr *)(skb->data + (iph->ihl << 2 ));
-		sk = 0; //__inet_lookup_skb(&tcp_hashinfo, skb, tcph->source, tcph->dest);
+		sk = __inet_lookup_skb(&tcp_hashinfo, skb, tcph->source, tcph->dest);
 		trace_inet_sock_local_in(sk, tcph);
+		if (sk)
+			sock_put(sk);
 	}
 	return NF_ACCEPT;
 }
