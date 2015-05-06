@@ -264,6 +264,7 @@ DEFINE_EVENT_PRINT(mm_page, mm_page_pcpu_drain,
 		__entry->order, __entry->migratetype)
 );
 
+/*
 TRACE_EVENT(mm_page_alloc_extfrag,
 
 	TP_PROTO(struct page *page,
@@ -301,6 +302,7 @@ TRACE_EVENT(mm_page_alloc_extfrag,
 		__entry->fallback_order < pageblock_order,
 		__entry->alloc_migratetype == __entry->fallback_migratetype)
 );
+*/
 
 #endif /* _TRACE_KMEM_H */
 

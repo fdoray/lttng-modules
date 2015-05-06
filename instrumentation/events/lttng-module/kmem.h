@@ -286,6 +286,7 @@ LTTNG_TRACEPOINT_EVENT_INSTANCE_PRINT(mm_page, mm_page_pcpu_drain,
 		__entry->order, __entry->migratetype)
 )
 
+/*
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(3,12,0))
 
 LTTNG_TRACEPOINT_EVENT(mm_page_alloc_extfrag,
@@ -330,7 +331,7 @@ LTTNG_TRACEPOINT_EVENT(mm_page_alloc_extfrag,
 		__entry->change_ownership)
 )
 
-#else /* #if (LINUX_VERSION_CODE >= KERNEL_VERSION(3,12,0)) */
+#else
 
 LTTNG_TRACEPOINT_EVENT(mm_page_alloc_extfrag,
 
@@ -370,7 +371,8 @@ LTTNG_TRACEPOINT_EVENT(mm_page_alloc_extfrag,
 		__entry->alloc_migratetype == __entry->fallback_migratetype)
 )
 
-#endif /* #else #if (LINUX_VERSION_CODE >= KERNEL_VERSION(3,12,0)) */
+#endif
+*/
 
 #endif
 
